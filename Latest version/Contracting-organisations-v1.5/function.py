@@ -50,8 +50,6 @@ def term():
 
 #------------------------------- GENERAL FUNCTION ------------------------------#
 
-
-
                         #__sorting function
 def sortek(index):
     if (len(space.room[index]) == 1):
@@ -59,12 +57,9 @@ def sortek(index):
     else:
         for z in range(2, len(space.room[index])*2):
             for y in range(2, len(space.room[index])):
-                print(space.room)
-                print('y is: ',y)
-                first_term = space.room[index][y].split(" |term: ")
-                second_term = space.room[index][y - 1].split(" |term: ")
-                print('1: ',second_term[1])
-                print('2: ',first_term[1])
+                second_term = space.room[index][y].split(" |term: ")
+                first_term = space.room[index][y - 1].split(" |term: ")
+
                 s = second_term[1].split("-")
                 f = first_term[1].split("-")
 
@@ -85,9 +80,6 @@ def sortek(index):
                             space.room[index][y] = space.room[index][y - 1]
                             space.room[index][y - 1] = wait
                             break
-
-
-
 
 def edit_rooms():
     decorations.rooms_option()
