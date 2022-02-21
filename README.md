@@ -1,5 +1,5 @@
 # Contracting-organisations <div><img src="https://th.bing.com/th/id/OIP.LrRwVljZetejF3Ja3UmPOgHaHa?pid=ImgDet&rs=1" width="40" height="40" alt="key"></div>
- This program allows you to create an address and add a note to it
+ This program allows you to create an address and add a note to it. Notes include a deadline by which you must complete them. Deadlines are sorted so you know what you have the least time for.
 
 
 <div> 
