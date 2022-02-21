@@ -8,5 +8,10 @@
  
  Run <main.py> and organize your orders!
 
-# EDITING ADDRESS:
-editing possible in the space.py file
+
+
+# Version history
+
+
+
+
