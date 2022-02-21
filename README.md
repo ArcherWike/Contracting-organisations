@@ -20,10 +20,14 @@
 
 # History version:
 
-v1.5. Improved
+v1.5. Improved and sorting
+-Added term sorting
 
 v1.4. 'After restarting everything comes back'
 -Added saving from file
+
+v1.3. Terms
+-Added terms
 
 v1.2. Menu updated
 
