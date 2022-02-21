@@ -11,6 +11,9 @@
  Old versions may not be available or may not work and you will get bushings!
 
  The latest version in the < latest >
+
+ Beta versions may be unstable!
+
 # Launching
  Run <main.py> and organize your orders!
 
