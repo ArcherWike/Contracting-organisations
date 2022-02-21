@@ -32,7 +32,7 @@ def choice_edit():
 
 
 decorations.ui()
-print("\n\tWITAJ W PROGRAMIE NOTATNIK WOŹNEGO\n")
+print("\n\tWITAJ W PROGRAMIE\n")
 
 
         #Main loop
