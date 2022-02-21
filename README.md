@@ -9,7 +9,7 @@
  Download the latest versions!
  Old versions may not be available or may not work and you will get bushings!
 
- The latest version in the <latest>
+ The latest version in the < latest >
 # Launching
  Run <main.py> and organize your orders!
 
