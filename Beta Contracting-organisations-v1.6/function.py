@@ -253,7 +253,7 @@ def add():
     content = input("Podaj tresc notatki: ")
     result = term()
     if (result == False):
-        pass
+        return
     else:
         if(adrs in range(1, len(space.room))):
             content = content + " |term: " + result
