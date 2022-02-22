@@ -90,7 +90,6 @@ def sortek(index):
     else:
         for z in range(2, len(space.room[index])*2):
             for y in range(2, len(space.room[index])):
-
                 second_term = space.room[index][y].split(" |term: ")
                 first_term = space.room[index][y - 1].split(" |term: ")
 
@@ -252,29 +251,9 @@ def add():
         return
 
     content = input("Podaj tresc notatki: ")
-
-
-    teq(True)
-    want_term = print("Czy chcesz dodac termin wykonania? ")
-
-    if(want_term == '1'):
-        pass
-    elif(want_term == '2'):
-        print("Nie ma jeszcze niedodawania xD Musisz dodać :P")
-    elif(want_term == '3'):
-        print("Mozesz dodac termin wykonania, w ktorym masz wykonac notatke\nPomoze Ci to w organizacji zadan\n Zobaczysz na ktore zadanie masz malo czasu, bo są sortowane w kolejności terminu na wykonanie zadania")
-        teq(False)
-        want_term = print("Czy chcesz dodac termin wykonania? ")
-        if (want_term == '1'):
-            print('Nie ma jeszcze niedodawania xD Musisz dodać :P')
-        elif (want_term == '2'):
-            return
-    else:
-        print("Nie ma takiego wyboru!")
-
     result = term()
     if (result == False):
-        return
+        pass
     else:
         if(adrs in range(1, len(space.room))):
             content = content + " |term: " + result
