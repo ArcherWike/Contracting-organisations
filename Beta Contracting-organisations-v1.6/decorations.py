@@ -48,7 +48,21 @@ def rooms_option():
         print("\t",x+1, an)
     ui()
 
+def teq(do):
+    ui()
+    quterm = ['Dopisz termin wykonania',
+              'Nie dodawaj',
+              'O co chodzi?']
 
+    for x, an in enumerate(quterm):
+        if(do == False):
+            if(x == 2):
+                pass
+            else:
+                print("\t", x + 1, an)
+        else:
+            print("\t", x + 1, an)
+    ui()
 
 
 def see_menu():
