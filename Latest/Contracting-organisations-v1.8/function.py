@@ -38,8 +38,17 @@ def want_term():
         print(" Nie ma takiego wyboru! ")
         want_term()
 
+def int_num_year(x):
+    if (x in range(1000, 9999)):
+        return True
+    else:
+        return False
 
-
+def int_num_daymonth(x):
+    if (x in range(1, 32)):
+        return True
+    else:
+        return False
 
 
             #check_term
@@ -65,9 +74,9 @@ def term():
     if (d != -1):
         if (len(data) == 10):
             spli = data.split("-")
-            if (len(spli[0]) == 4):
-                if ((len(spli[1]) == 2) and (int(spli[1]) <= 12)):
-                    if (len(spli[2]) == 2 and int(spli[2]) <= 31):
+            if (len(spli[0]) == 4) and int_num_year(spli[0] == True):
+                if ((len(spli[1]) == 2) and (int(spli[1]) <= 12) and int_num_daymonth(spli[1] == True)):
+                    if (len(spli[2]) == 2 and int(spli[2]) <= 31 and int_num_daymonth(spli[2]) == True):
                         return str(data)
 
                     else:
@@ -86,7 +95,7 @@ def term():
             else:
                 print("Zly rok!")
                 if (check_term() == True):
-                    term()
+                    return  term()
                 else:
                     print("Dodawanie notatki nie powiodlo sie! :C ")
                     return False
@@ -107,6 +116,10 @@ def term():
 
 
 #------------------------------- GENERAL FUNCTION ------------------------------#
+
+
+
+
 
                         #__sorting function
 def sortek(index):
