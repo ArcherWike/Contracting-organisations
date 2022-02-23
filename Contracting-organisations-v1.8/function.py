@@ -21,7 +21,28 @@ def testing(x):
     return False
 
 
-                        #check_term
+
+def want_term():
+    decorations.teq()
+    userepl = input("Czy chcesz dodac termin wykonania? ")
+    if (userepl == '1'):
+        return True
+    elif (userepl == '2'):
+        return False
+    elif (userepl == '3'):
+        print("Mozesz dodac termin wykonania, w ktorym masz wykonac notatke\nPomoze Ci to w organizacji zadan\nZobaczysz na ktore zadanie masz malo czasu, bo są sortowane w kolejności terminu na wykonanie zadania")
+        return want_term()
+    elif (userepl == '4'):
+        return 'Exit'
+    else:
+        print(" Nie ma takiego wyboru! ")
+        want_term()
+
+
+
+
+
+            #check_term
                     #to the function below
         #asks whether the user wants to enter the date again or exit
 def check_term():
@@ -47,7 +68,7 @@ def term():
             if (len(spli[0]) == 4):
                 if ((len(spli[1]) == 2) and (int(spli[1]) <= 12)):
                     if (len(spli[2]) == 2 and int(spli[2]) <= 31):
-                        return data
+                        return str(data)
 
                     else:
                         print("Zly dzien!")
@@ -95,25 +116,32 @@ def sortek(index):
         for z in range(2, len(space.room[index])*2):
             for y in range(2, len(space.room[index])):
 
-                second_term = space.room[index][y].split(" |term: ")
-                first_term = space.room[index][y - 1].split(" |term: ")
+                if((space.room[index][y]).find(" |term: ") == -1):
+                    s = [-1, -1, -1]
+                else:
+                    second_term = space.room[index][y].split(" |term: ")
+                    s = second_term[1].split("-")
 
-                s = second_term[1].split("-")
-                f = first_term[1].split("-")
+                if ((space.room[index][y - 1]).find(" |term: ") == -1):
+                    f = [-1, -1, -1]
+                else:
+                    first_term = space.room[index][y - 1].split(" |term: ")
+                    f = first_term[1].split("-")
 
-                if (s[0] < f[0]):
+
+                if (int(s[0]) < int(f[0])):
                     wait = space.room[index][y]
                     space.room[index][y] = space.room[index][y - 1]
                     space.room[index][y - 1] = wait
                     break
-                elif (s[0] == f[0]):
-                    if (s[1] < f[1]):
+                elif (int(s[0]) == int(f[0])):
+                    if (int(s[1]) < int(f[1])):
                         wait = space.room[index][y]
                         space.room[index][y] = space.room[index][y - 1]
                         space.room[index][y - 1] = wait
                         break
-                    elif (s[1] == f[1]):
-                        if (s[2] < f[2]):
+                    elif (int(s[1]) == int(f[1])):
+                        if (int(s[2]) < int(f[2])):
                             wait = space.room[index][y]
                             space.room[index][y] = space.room[index][y - 1]
                             space.room[index][y - 1] = wait
@@ -257,41 +285,19 @@ def add():
 
     content = input("Podaj tresc notatki: ")
 
+    userepl = want_term()
 
-    decorations.teq(True)
-    want_term = input("Czy chcesz dodac termin wykonania? ")
-
-    if(want_term == '1'):
-        pass
-    elif(want_term == '2'):
-        print("Nie ma jeszcze niedodawania xD Musisz dodać :P")
-    elif(want_term == '3'):
-        print("Mozesz dodac termin wykonania, w ktorym masz wykonac notatke\nPomoze Ci to w organizacji zadan\n Zobaczysz na ktore zadanie masz malo czasu, bo są sortowane w kolejności terminu na wykonanie zadania")
-        decorations.teq(False)
-        want_term = input("Czy chcesz dodac termin wykonania? ")
-        if (want_term == '1'):
-            print('Nie ma jeszcze niedodawania xD Musisz dodać :P')
-        elif (want_term == '2'):
-            print("Nie ma jeszcze niedodawania xD Musisz dodać :P")
-        else:
-            print("Nie ma takiego wyboru")
-            return
-    else:
-        print("Nie ma takiego wyboru!")
-
-    result = term()
-    if (result == False):
+    if (userepl == True):
+        result = term()
+        content = content + " |term: " + result
+    elif (userepl == False):
         pass
     else:
-        if(adrs in range(1, len(space.room))):
-            content = content + " |term: " + result
-            space.room[adrs].append(content)
-            if(len(space.room[adrs]) > 3):
-                sortek(adrs)
-            update()
-        else:
-            print("Taki pokoj nie istnieje!")
-
+        return
+    space.room[adrs].append(content)
+    if (len(space.room[adrs]) > 2):
+        sortek(adrs)
+    update()
 
 
                                 #  3. Delete note    #
