@@ -21,9 +21,12 @@
 
 # History version:
 
-v1.7.
+v1.8. added an option to not add a date to a date
 
-v1.6.
+v1.7. program enhancements
+-added a choice of whether to add a deadline to the task
+
+v1.6. program enhancements
 
 v1.5. Improved and sorting
 -Added term sorting
