@@ -21,6 +21,10 @@
 
 # History version:
 
+v1.7.
+
+v1.6.
+
 v1.5. Improved and sorting
 -Added term sorting
 
