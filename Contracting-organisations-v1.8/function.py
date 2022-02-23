@@ -289,7 +289,10 @@ def add():
 
     if (userepl == True):
         result = term()
-        content = content + " |term: " + result
+        if (result == False):
+            return
+        else:
+            content = content + " |term: " + result
     elif (userepl == False):
         pass
     else:
