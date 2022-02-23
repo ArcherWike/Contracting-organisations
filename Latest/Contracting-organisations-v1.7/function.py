@@ -60,24 +60,28 @@ def term():
                     if (check_term() == True):
                         term()
                     else:
+                        print("Dodawanie notatki nie powiodlo sie! :C ")
                         return False
             else:
                 print("Zly rok!")
                 if (check_term() == True):
                     term()
                 else:
+                    print("Dodawanie notatki nie powiodlo sie! :C ")
                     return False
         else:
             print("Zla data! ")
             if (check_term() == True):
                 term()
             else:
+                print("Dodawanie notatki nie powiodlo sie! :C ")
                 return False
     else:
         print("Zla data! ")
         if (check_term() == True):
             term()
         else:
+            print("Dodawanie notatki nie powiodlo sie! :C ")
             return False
 
 
@@ -268,7 +272,7 @@ def add():
         if (want_term == '1'):
             print('Nie ma jeszcze niedodawania xD Musisz dodać :P')
         elif (want_term == '2'):
-            return
+            print("Nie ma jeszcze niedodawania xD Musisz dodać :P")
         else:
             print("Nie ma takiego wyboru")
             return
