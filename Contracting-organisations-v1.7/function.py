@@ -212,7 +212,7 @@ def display():
     decorations.menu_rooms(True)
     adrs = input("zadania z ktorego adresu chcesz zobaczyc? ")
 
-    if(testing(num)):
+    if(testing(adrs)):
         adrs = int(adrs)
     else:
         print("Nie ma takiego adresu!")
@@ -269,6 +269,9 @@ def add():
             print('Nie ma jeszcze niedodawania xD Musisz dodać :P')
         elif (want_term == '2'):
             return
+        else:
+            print("Nie ma takiego wyboru!")
+            return   
     else:
         print("Nie ma takiego wyboru!")
 
