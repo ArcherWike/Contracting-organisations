@@ -69,7 +69,10 @@ def term():
                 int(spli[2])
             except:
                 print("Zla data")
-                return False
+                if(check_term() == True):
+                    return  term()
+                else:
+                    return False
             else:
                 if (len(spli[0]) == 4):
                     if ((len(spli[1]) == 2) and (int(spli[1]) <= 12)):
