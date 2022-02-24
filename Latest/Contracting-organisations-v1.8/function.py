@@ -15,11 +15,12 @@ def update():
             #   returns True
             #   otherwise returns False
 def testing(x):
-    for num in range(0, len(space.room)):
-        if(x == str(num)):
-            return True
-    return False
-
+    try:
+        int(x)
+    except:
+        return False
+    else:
+        return True
 
 
 def want_term():
@@ -37,18 +38,6 @@ def want_term():
     else:
         print(" Nie ma takiego wyboru! ")
         want_term()
-
-def int_num_year(x):
-    if (x in range(1000, 9999)):
-        return True
-    else:
-        return False
-
-def int_num_daymonth(x):
-    if (x in range(1, 32)):
-        return True
-    else:
-        return False
 
 
             #check_term
@@ -74,42 +63,49 @@ def term():
     if (d != -1):
         if (len(data) == 10):
             spli = data.split("-")
-            if (len(spli[0]) == 4) and int_num_year(spli[0] == True):
-                if ((len(spli[1]) == 2) and (int(spli[1]) <= 12) and int_num_daymonth(spli[1] == True)):
-                    if (len(spli[2]) == 2 and int(spli[2]) <= 31 and int_num_daymonth(spli[2]) == True):
-                        return str(data)
-
-                    else:
-                        print("Zly dzien!")
-                        if(check_term() == True):
-                            term()
+            try:
+                int(spli[0])
+                int(spli[1])
+                int(spli[2])
+            except:
+                print("Zla data")
+                return False
+            else:
+                if (len(spli[0]) == 4):
+                    if ((len(spli[1]) == 2) and (int(spli[1]) <= 12)):
+                        if (len(spli[2]) == 2 and int(spli[2]) <= 31):
+                            return str(data)
                         else:
+                            print("Zly dzien!")
+                            if(check_term() == True):
+                                return  term()
+                            else:
+                                return False
+                    else:
+                        print("Zly miesiac!")
+                        if (check_term() == True):
+                            return  term()
+                        else:
+                            print("Dodawanie notatki nie powiodlo sie! :C ")
                             return False
                 else:
-                    print("Zly miesiac!")
+                    print("Zly rok!")
                     if (check_term() == True):
-                        term()
+                        return  term()
                     else:
                         print("Dodawanie notatki nie powiodlo sie! :C ")
                         return False
-            else:
-                print("Zly rok!")
-                if (check_term() == True):
-                    return  term()
-                else:
-                    print("Dodawanie notatki nie powiodlo sie! :C ")
-                    return False
         else:
             print("Zla data! ")
             if (check_term() == True):
-                term()
+                return  term()
             else:
                 print("Dodawanie notatki nie powiodlo sie! :C ")
                 return False
     else:
         print("Zla data! ")
         if (check_term() == True):
-            term()
+            return  term()
         else:
             print("Dodawanie notatki nie powiodlo sie! :C ")
             return False
@@ -257,7 +253,7 @@ def display():
     decorations.menu_rooms(True)
     adrs = input("zadania z ktorego adresu chcesz zobaczyc? ")
 
-    if(testing(adrs)):
+    if(testing(adrs) == True):
         adrs = int(adrs)
     else:
         print("Nie ma takiego adresu!")
