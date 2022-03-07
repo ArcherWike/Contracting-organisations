@@ -161,15 +161,37 @@ def sortek(index):
 
 
 
+
+
+def add_adress():
+    name_space = str(input('podaj adres do dodania: '))
+    for ix, p in enumerate(space.room):
+        print(ix,str(p[0]))
+        if ix == 0:
+            pass
+        else:
+            if name_space == p[0]:
+                print("Taki adres już istnieje! Możesz dodać tylko nieistniejący adres!")
+                z = input("Czy chcesz sprobować ponownie? y/n")
+                if z == 'y':
+                    return add_adress()
+                elif (z == 'n'):
+                    return
+                else:
+                    print("Nie ma takiego wyboru!")
+                    return
+    space.room.append([name_space])
+    update()
+
+
+
 def edit_rooms():
     decorations.rooms_option()
     space_option = input("Co chcesz zrobic? ")
     if(space_option == '1'):                                              #display address
         decorations.menu_rooms(False)
     elif(space_option == '2'):                                            #add new address
-        name_space = str(input('podaj adres do dodania: '))
-        space.room.append([name_space])
-        update()
+        add_adress()
     elif(space_option == '3'):
         if (len(space.room) == 1):
             print("Co ty chcesz usunac?\nBrak adresow!\nNajpierw jakis dodaj!")
