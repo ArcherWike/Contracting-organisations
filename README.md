@@ -22,6 +22,12 @@
 # History version:
 
 
+v1.9. -hiring of personnel
+  -employee blacklist
+  -settings
+  -logging
+  plus a surprise 
+
 v1.8. added an option to not add a date to a date
 
 v1.7. program enhancements
